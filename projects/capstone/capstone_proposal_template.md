@@ -4,10 +4,10 @@ Sarath Sasank
 July 11, 2017
 
 ## Proposal
-_(approx. 2-3 pages)_
+
 
 ### Domain Background
-_(approx. 1-2 paragraphs)_
+
 
 Quora is a place to gain and share knowledge—about anything. It’s a platform to ask questions and connect with people who contribute unique insights and quality answers. This empowers people to learn from each other and to better understand the world.
 
@@ -19,7 +19,7 @@ The link for a fuzzy matching algorithm study is given above. My idea is to use 
 
 
 ### Problem Statement
-_(approx. 1 paragraph)_
+
 
 In this section, clearly describe the problem that is to be solved. The problem described should be well defined and should have at least one relevant potential solution. Additionally, describe the problem thoroughly such that it is clear that the problem is quantifiable (the problem can be expressed in mathematical or logical terms) , measurable (the problem can be measured by some metric and clearly observed), and replicable (the problem can be reproduced and occurs more than once).
 
@@ -27,7 +27,7 @@ In this section, clearly describe the problem that is to be solved. The problem 
 Given two pair of questions we need to identify if these two questions have same semantic meaning. The intent of the two questions should be same for the pair to be flagged as duplicates and if not it is not a duplicate. We can measure the log loss.Log Loss quantifies the accuracy of a classifier by penalising false classifications. Minimising the Log Loss is basically equivalent to maximising the accuracy of the classifier, but there is a subtle twist which we’ll get to in a moment. In order to calculate Log Loss the classifier must assign a probability to each class rather than simply yielding the most likely class. 
 
 ### Datasets and Inputs
-_(approx. 2-3 paragraphs)_
+
 
 In this section, the dataset(s) and/or input(s) being considered for the project should be thoroughly described, such as how they relate to the problem and why they should be used. Information such as how the dataset or input is (was) obtained, and the characteristics of the dataset or input, should be included with relevant references and citations as necessary It should be clear how the dataset(s) or input(s) will be used in the project and whether their use is appropriate given the context of the problem.
 
@@ -42,23 +42,23 @@ question1, question2 - the full text of each question
 is_duplicate - the target variable, set to 1 if question1 and question2 have essentially the same meaning, and 0 otherwise.
 
 ### Solution Statement
-_(approx. 1 paragraph)_
+
 
 
 The solution is to identify key features and use them to predict whether a pair is a duplicate or not. The three features considered are word shared between two questions, jaccard similarity between n grams and the damareau levenshtein distance between the questions. We extract these three features from the text and then XGBoost is used to classify the pair into duplicates or not. The final answer is measured by comparing the predictions and actual values using log loss function.
 
 ### Benchmark Model
-_(approximately 1-2 paragraphs)_
+
 
 The benchmark model used here is by using only the words shared between the pair as feature and then classification is done on that. The drawback of the model is that there is no involvement of fuzzy matching algorithm to compare the sentences.
 
 ### Evaluation Metrics
-_(approx. 1-2 paragraphs)_
+
 
 Logarithmic loss (related to cross-entropy) measures the performance of a classification model where the prediction input is a probability value between 0 and 1. The goal of our machine learning models is to minimize this value. A perfect model would have a log loss of 0. Log loss increases as the predicted probability diverges from the actual label. So predicting a probability of .012 when the actual observation label is 1 would be bad and result in a high log loss.
 
 ### Project Design
-_(approx. 1 page)_
+
 There are three parts in the project. They are
 1. Preprocessing
   The text is processed so that the unigrams and bigrams are extracted. Then tf idf is computed to get the word shares between the question pair. Stopwords should also be removed from the text and this should be used for the next steps.
